@@ -1,4 +1,6 @@
-package test.java;
+//package test.java;
+package test;
+
 import java.io.File;
 import java.io.InputStream;
 import java.util.concurrent.TimeUnit;
