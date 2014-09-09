@@ -1,4 +1,4 @@
-package test.java;
+package test;
 public class Constants
 {
 /** Project Constants */
