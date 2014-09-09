@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="testList" parallel="tests" thread-count="5">
-<test name="United-iphone">
-<parameter name="deviceID" value="3152168C4EAA1E2A5DE93CF7B89222720E3A62E0">
-<classes>
-<class name="test.TestNGUnitedTest" />
-</classes>
-</parameter>
-</test>
-<test name="Android 2">
-<parameter name="deviceID" value="D5B3B672">
-<classes>
-<class name="test.TestNGUnitedTest" />
-</classes>
-</parameter>
-</test>
+  <test name="United-iphone">
+    <parameter name="deviceID" value="3152168C4EAA1E2A5DE93CF7B89222720E3A62E0">
+      <classes>
+        <class name="test.TestNGUnitedTest" />
+      </classes>
+    </parameter>
+  </test>
+  <test name="Android 2">
+    <parameter name="deviceID" value="D5B3B672">
+      <classes>
+        <class name="test.TestNGUnitedTest" />
+      </classes>
+    </parameter>
+  </test>
 <!--<
 test name="new_android">
 <parameter name="deviceID" value="0149BCA71700D01F">
