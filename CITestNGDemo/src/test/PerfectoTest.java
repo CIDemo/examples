@@ -1,5 +1,5 @@
-//package test.java;
-package test;
+package test.java;
+//package test;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
