@@ -39,11 +39,11 @@ Reporter.log("Connect to:"+host);
 @AfterTest
 public void afterTest(){
 driver.quit();
-InputStream reportStream = ((IMobileDriver) driver).downloadReport(MediaType.PDF);
+InputStream reportStream = ((IMobileDriver) driver).downloadReport(MediaType.HTML);
 if (reportStream != null) {
-File reportFile = new File(Constants.REPORT_LIB+"TestNG_"+_Device+".PDF");
+File reportFile = new File(Constants.REPORT_LIB+"TestNG_"+_Device+".HTML");
 FileUtils.write(reportStream, reportFile);
-Reporter.log( Constants.REPORT_LIB+"TestNG_"+_Device+".PDF");
+Reporter.log( Constants.REPORT_LIB+"TestNG_"+_Device+".HTML");
 }
 }
 @Parameters({ "deviceID" })
@@ -56,8 +56,9 @@ Reporter.log("device MODEL :"+device.getProperty(MobileDeviceProperty.MODEL));
 Reporter.log("device OS :"+device.getProperty(MobileDeviceProperty.OS));
 PerfectoTest t = new PerfectoTest();
 String rc = t.checkFlights(device);
-String filename =Constants.REPORT_LIB+"TestNG_"+_Device+".PDF" ;
+String filename =Constants.REPORT_LIB+"TestNG_"+_Device+".HTML" ;
 Reporter.log("</br><b>Report:</b> <a href=" + filename +">Report</a>");
+Reporter.log("</br><b>Report:</b> <a href=" + filename +">" + filename+ "</a>");
 assert rc.equals("New York/Newark, NJ (EWR)") : "Expected New York/Newark, NJ (EWR)" + rc;
 }
 }
