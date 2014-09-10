@@ -1,5 +1,5 @@
-//package test.java;
-package test;
+package test.java;
+//package test;
 
 import java.io.File;
 import java.io.InputStream;
