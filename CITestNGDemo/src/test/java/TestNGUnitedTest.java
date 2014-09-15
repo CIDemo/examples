@@ -58,10 +58,13 @@ PerfectoTest t = new PerfectoTest();
 String rc = t.checkFlights(device);
 //String filename =Constants.REPORT_LIB+"TestNG_"+_Device+".HTML" ;
 String filename ="TestNG_"+_Device+".HTML" ;
+String FileLink ="file:///" + Constants.REPORT_LIB_HTML + "/" + filename;
+
+Reporter.log("FileLink:"+FileLink);
 
 //Reporter.log("</br><b>Report:</b> <a href=file:///" + filename +">Report</a>");
-//Reporter.log("</br><b>Report:</b> <a href=file:///" + filename +">" + filename+ "</a>");
-Reporter.log("</br><b>Report:</b> <a href=file:///" + Constants.REPORT_LIB_HTML + "/" + filename + "</a>");
+Reporter.log("</br><b>Report:</b> <a href=file:///" + filename +">" + filename+ "</a>");
+Reporter.log("</br><b>Report:</b> <a href=" + FileLink + "</a>");
 
 assert rc.equals("New York/Newark, NJ (EWR)") : "Expected New York/Newark, NJ (EWR)" + rc;
 }
