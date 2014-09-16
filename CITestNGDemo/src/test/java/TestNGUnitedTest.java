@@ -64,7 +64,7 @@ public class TestNGUnitedTest {
 				StringBuilder sb = new StringBuilder();
 				String line = br.readLine();
 
-				Reporter.log("<table border=\"1\" style=\"width:100\" valign=\"top\" align=\"left\" style=\"font-family: Verdana; font-style: normal; font-variant: normal; font-weight: normal; font-size: 10pt; color: black; text-indent: 0em; letter-spacing: normal; word-spacing: normal; text-transform: none;margin-top: 0pt; margin-bottom: 20pt; height: 3.146in; width: 10.562in; white-space: normal; line-height: normal\">");
+				Reporter.log("<table><DIV border=\"1\" style=\"width:100\" valign=\"top\" align=\"left\" style=\"font-family: Verdana; font-style: normal; font-variant: normal; font-weight: normal; font-size: 10pt; color: black; text-indent: 0em; letter-spacing: normal; word-spacing: normal; text-transform: none;margin-top: 0pt; margin-bottom: 20pt; height: 3.146in; width: 10.562in; white-space: normal; line-height: normal\">");
 
 				while (line != null) {
 					sb.append(line);
@@ -73,7 +73,7 @@ public class TestNGUnitedTest {
 				}
 				Reporter.log(sb.toString());
 
-				Reporter.log("</table>");
+				Reporter.log("</DIV></table>");
 
 				/*
 				Reporter.log("<DIV valign=\"top\" align=\"left\" style=\"font-family: Verdana; font-style: normal; font-variant: normal; font-weight: normal; font-size: 10pt; color: black; text-indent: 0em; letter-spacing: normal; word-spacing: normal; text-transform: none;margin-top: 0pt; margin-bottom: 20pt; height: 3.146in; width: 10.562in; white-space: normal; line-height: normal\">");
