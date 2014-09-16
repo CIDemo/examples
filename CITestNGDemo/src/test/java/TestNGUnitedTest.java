@@ -44,7 +44,7 @@ public class TestNGUnitedTest {
 		Reporter.log("Connect to:"+host);
 	}
 
-
+	@AfterTest
 	public void afterTest(){
 		driver.quit();
 		InputStream reportStream = ((IMobileDriver) driver).downloadReport(MediaType.HTML);
