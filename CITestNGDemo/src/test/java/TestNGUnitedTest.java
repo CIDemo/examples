@@ -44,6 +44,55 @@ if (reportStream != null) {
 File reportFile = new File(Constants.REPORT_LIB+"TestNG_"+_Device+".HTML");
 FileUtils.write(reportStream, reportFile);
 Reporter.log( Constants.REPORT_LIB+"TestNG_"+_Device+".HTML");
+
+
+String filename =Constants.REPORT_LIB+"TestNG_"+_Device+".HTML"  ;
+
+try {
+				BufferedReader br = new BufferedReader(new FileReader(filename));
+
+				StringBuilder sb = new StringBuilder();
+				String line = br.readLine();
+
+				//Reporter.log("<DIV>");
+
+        Reporter.log("<object data=" + FileLink + " width=\"600\" height=\"400\"> <embed src=");
+
+
+				while (line != null) {
+					sb.append(line);
+					sb.append(System.lineSeparator());
+					line = br.readLine();
+				}
+				Reporter.log(sb.toString());
+
+				//Reporter.log("</DIV>");
+				
+				Reporter.log(" width=\"600\" height=\"400\"> </embed> Error: Embedded data could not be displayed. </object>");
+
+
+				br.close();
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+			
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 }
 @Parameters({ "deviceID" })
@@ -67,7 +116,6 @@ String FileLink ="file:///" + Constants.REPORT_LIB_HTML + filename;
 Reporter.log("</br><b>Report:</b> <a href=" + FileLink + ">Perfecto Mobile Report</a>");
 
 Reporter.log("<object data=" + FileLink + " width=\"600\" height=\"400\"> <embed src="+ FileLink + " width=\"600\" height=\"400\"> </embed> Error: Embedded data could not be displayed. </object>");
-Reporter.log("<html><head><script src=\"jquery.js\"></script><script>$(function(){$(\"#includedContent\").load(\"" + FileLink + "\"); });</script> </head><body><div id=\"includedContent\"></div>  </body></html>");
 
 
 assert rc.equals("New York/Newark, NJ (EWR)") : "Expected New York/Newark, NJ (EWR)" + rc;
