@@ -44,7 +44,7 @@ public class TestNGUnitedTest {
 		Reporter.log("Connect to:"+host);
 	}
 
-	@AfterTest
+
 	public void afterTest(){
 		driver.quit();
 		InputStream reportStream = ((IMobileDriver) driver).downloadReport(MediaType.HTML);
@@ -54,9 +54,9 @@ public class TestNGUnitedTest {
 			FileUtils.write(reportStream, reportFile);
 			Reporter.log( Constants.REPORT_LIB+"TestNG_"+_Device+".HTML");
 
-			
 			String filename =Constants.REPORT_LIB+"TestNG_"+_Device+".HTML"  ;
 			String FileLink ="file:///" + Constants.REPORT_LIB_HTML + filename;
+			//	Reporter.log("</br><b>Report:</b> <a href=" + filename +">Report</a>");
 
 			try {
 				BufferedReader br = new BufferedReader(new FileReader(filename));
@@ -64,7 +64,19 @@ public class TestNGUnitedTest {
 				StringBuilder sb = new StringBuilder();
 				String line = br.readLine();
 
-				Reporter.log("</br><DIV>");
+				Reporter.log("<table border=\"1\" style=\"width:100\" valign=\"top\" align=\"left\" style=\"font-family: Verdana; font-style: normal; font-variant: normal; font-weight: normal; font-size: 10pt; color: black; text-indent: 0em; letter-spacing: normal; word-spacing: normal; text-transform: none;margin-top: 0pt; margin-bottom: 20pt; height: 3.146in; width: 10.562in; white-space: normal; line-height: normal\">");
+
+				while (line != null) {
+					sb.append(line);
+					sb.append(System.lineSeparator());
+					line = br.readLine();
+				}
+				Reporter.log(sb.toString());
+
+				Reporter.log("</table>");
+
+				/*
+				Reporter.log("<DIV valign=\"top\" align=\"left\" style=\"font-family: Verdana; font-style: normal; font-variant: normal; font-weight: normal; font-size: 10pt; color: black; text-indent: 0em; letter-spacing: normal; word-spacing: normal; text-transform: none;margin-top: 0pt; margin-bottom: 20pt; height: 3.146in; width: 10.562in; white-space: normal; line-height: normal\">");
 
 				while (line != null) {
 					sb.append(line);
@@ -74,13 +86,16 @@ public class TestNGUnitedTest {
 				Reporter.log(sb.toString());
 
 				Reporter.log("</DIV>");
-
+				*/
+				
 				br.close();
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
-		} 
+			
+		}
 	}
+
 
 
 	@Parameters({ "deviceID" })
