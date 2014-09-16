@@ -54,7 +54,7 @@ public class TestNGUnitedTest {
 			FileUtils.write(reportStream, reportFile);
 			Reporter.log( Constants.REPORT_LIB+"TestNG_"+_Device+".HTML");
 
-/*			
+			
 			String filename =Constants.REPORT_LIB+"TestNG_"+_Device+".HTML"  ;
 			String FileLink ="file:///" + Constants.REPORT_LIB_HTML + filename;
 
@@ -64,7 +64,7 @@ public class TestNGUnitedTest {
 				StringBuilder sb = new StringBuilder();
 				String line = br.readLine();
 
-				Reporter.log("<DIV>");
+				Reporter.log("</br><DIV>");
 
 				while (line != null) {
 					sb.append(line);
@@ -78,7 +78,7 @@ public class TestNGUnitedTest {
 				br.close();
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
-			}*/
+			}
 		} 
 	}
 
@@ -99,7 +99,7 @@ public class TestNGUnitedTest {
 		//Reporter.log("</br><b>Report:</b> <a href=" + FileLink + ">Perfecto Mobile Report</a>");
 		//Reporter.log("<OBJECT data=\"C:/test/TestNG_D5B3B672.PDF\" TYPE=\"application/x-pdf\" TITLE=\"Perfecto Mobile PDF Report\" WIDTH=200 HEIGHT=100> <a href=\"C:/test/TestNG_D5B3B672.PDF\">Perfecto PDF Report Link</a></object>");
 		//Reporter.log("<OBJECT data=\"" + FileLink + "\" width=\"600\" height=\"400\"> <embed src="+ FileLink + " width=\"600\" height=\"400\"> </embed> Error: Embedded data could not be displayed. </object>");
-		Reporter.log("<OBJECT data=\"" + FileLink + "\" TYPE=\"application/html\" TITLE=\"Perfecto Mobile HTML Report\" WIDTH=200 HEIGHT=100> <a href=\"" + FileLink + "\">Perfecto HTML Report Link</a></object>");
+		//Reporter.log("<OBJECT data=\"" + FileLink + "\" TYPE=\"application/html\" TITLE=\"Perfecto Mobile HTML Report\" WIDTH=200 HEIGHT=100> <a href=\"" + FileLink + "\">Perfecto HTML Report Link</a></object>");
 		
 		
 		PerfectoTest t = new PerfectoTest();
