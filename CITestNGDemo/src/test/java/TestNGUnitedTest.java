@@ -67,6 +67,8 @@ String FileLink ="file:///" + Constants.REPORT_LIB_HTML + filename;
 Reporter.log("</br><b>Report:</b> <a href=" + FileLink + ">Perfecto Mobile Report</a>");
 
 Reporter.log("<object data=" + FileLink + " width=\"600\" height=\"400\"> <embed src="+ FileLink + " width=\"600\" height=\"400\"> </embed> Error: Embedded data could not be displayed. </object>");
+Reporter.log("<html><head><script src=\"jquery.js\"></script><script>$(function(){$(\"#includedContent\").load(" + FileLink + "); });</script> </head><body><div id=\"includedContent\"></div>  </body></html>");"
+
 
 assert rc.equals("New York/Newark, NJ (EWR)") : "Expected New York/Newark, NJ (EWR)" + rc;
 }
