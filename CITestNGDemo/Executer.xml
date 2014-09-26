@@ -10,14 +10,14 @@
     </parameter>
   </test>
 --><test name="united-iphone">
-    <parameter name="deviceID" value="4060DA913A53B10B444E1FF4CBF04C072790E97F">
+    <parameter name="deviceID" value="XXXXXXXXXXXXXXXXXXXXXXX">
       <classes>
         <class name="test.java.TestNGUnitedTest" />
       </classes>
     </parameter>
   </test>
   <test name="united-Android">
-    <parameter name="deviceID" value="5CDCB21A">
+    <parameter name="deviceID" value="XXXXXXXXXXXXXXXXXXXXXXXXX">
       <classes>
         <class name="test.java.TestNGUnitedTest" />
       </classes>
