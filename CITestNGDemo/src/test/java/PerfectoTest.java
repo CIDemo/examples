@@ -39,7 +39,10 @@ public class PerfectoTest {
 			//webDriver.clean();
 			// press on the button "flight status"
 
+			visualDriver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+
 			visualDriver.manage().timeouts().implicitlyWait(25,TimeUnit.SECONDS);
+
 			visualDriver.findElement(By.linkText("Flight Status"));
 			List<WebElement> objList  = webDriver.findElements(By.xpath("//*[contains(@class,\"ui-link-inherit\")]"));
 
