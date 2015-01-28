@@ -99,7 +99,7 @@ public class TestNGUnitedTest {
 		String rc =  t.checkFlights(device);
 
 	
-		assert rc.equals("New York/Newark, NJ (EWR)") : "Expected  New York/Newark, NJ (EWR)" + rc;
+		assert rc.equals("New York/Newark") : "Expected  New York/Newark" + rc;
 
 
 	}
