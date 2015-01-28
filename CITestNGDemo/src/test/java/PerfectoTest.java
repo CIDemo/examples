@@ -27,17 +27,12 @@ public class PerfectoTest {
 			// 2. Visual Driver - allows to validate that text appear on the screen using visual analysis (OCR).
 			//    This validation is very important and simulate the real user experience.
 
-			IMobileWebDriver webDriver = device.getDOMDriver(MobileBrowserType.OS);
-			webDriver.get("www.united.com");
-
-			//IMobileWebDriver  webDriver = device.getDOMDriver ("www.united.com");
+			IMobileWebDriver  webDriver = device.getDOMDriver ("www.united.com");
 			WebDriver visualDriver = device.getVisualDriver();
 
 			webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			webDriver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 			//webDriver.clean();
-			
-			//sleep(2000);
 			// press on the button "flight status"
 			visualDriver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 
@@ -58,8 +53,7 @@ public class PerfectoTest {
 				}
 
 			}
-			
-			//sleep(2000);
+
 			visualDriver.findElement(By.linkText("Search"));
 
 
@@ -95,12 +89,4 @@ public class PerfectoTest {
 	
 
 	}
-
-/*	private static void sleep(long millis) {
-		try {
-			Thread.sleep(millis);
-		} catch (InterruptedException e) {
-		}
-	}
-*/	
 }
