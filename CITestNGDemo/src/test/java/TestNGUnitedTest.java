@@ -1,10 +1,9 @@
 package test.java;
 
-
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.TimeUnit;
 
@@ -53,11 +52,17 @@ public class TestNGUnitedTest {
 
 		if (reportStream != null) {
 			File reportFile = new File(Constants.REPORT_LIB+"TestNG_"+_Device+".HTML");
-			FileUtils.write(reportStream, reportFile);
+			try {
+				FileUtils.write(reportStream, reportFile);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			Reporter.log( Constants.REPORT_LIB+"TestNG_"+_Device+".HTML");
 
+/*			
 			String filename =Constants.REPORT_LIB+"TestNG_"+_Device+".HTML"  ;
-			//	Reporter.log("</br><b>Report:</b> <a href=" + filename +">Report</a>");
+			String FileLink ="file:///" + Constants.REPORT_LIB_HTML + filename;
 
 			try {
 				BufferedReader br = new BufferedReader(new FileReader(filename));
@@ -65,7 +70,7 @@ public class TestNGUnitedTest {
 				StringBuilder sb = new StringBuilder();
 				String line = br.readLine();
 
-				Reporter.log("<DIV valign=\"top\" align=\"left\" style=\"font-family: Verdana; font-style: normal; font-variant: normal; font-weight: normal; font-size: 10pt; color: black; text-indent: 0em; letter-spacing: normal; word-spacing: normal; text-transform: none;margin-top: 0pt; margin-bottom: 20pt; height: 3.146in; width: 10.562in; white-space: normal; line-height: normal\">");
+				Reporter.log("<DIV>");
 
 				while (line != null) {
 					sb.append(line);
@@ -79,9 +84,8 @@ public class TestNGUnitedTest {
 				br.close();
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
-			}
-			
-		}
+			}*/
+		} 
 	}
 
 
@@ -93,15 +97,24 @@ public class TestNGUnitedTest {
 		IMobileDevice device = driver.getDevice(deviceID);
 		Reporter.log("device MODEL :"+device.getProperty(MobileDeviceProperty.MODEL));
 		Reporter.log("device OS :"+device.getProperty(MobileDeviceProperty.OS));
-		Reporter.log("Version 1.0");
 
+		String filename ="TestNG_"+_Device+".HTML" ;
+		String FileLink =Constants.REPORT_LIB_HTML + filename;
+		//String FileLink ="file:///" + Constants.REPORT_LIB_HTML + filename;
+
+		//Reporter.log("</br><b>Report:</b> <a href=" + FileLink + ">Perfecto Mobile Report</a>");
+		//Reporter.log("<OBJECT data=\"C:/test/TestNG_D5B3B672.PDF\" TYPE=\"application/x-pdf\" TITLE=\"Perfecto Mobile PDF Report\" WIDTH=200 HEIGHT=100> <a href=\"C:/test/TestNG_D5B3B672.PDF\">Perfecto PDF Report Link</a></object>");
+		//Reporter.log("<OBJECT data=\"" + FileLink + "\" width=\"600\" height=\"400\"> <embed src="+ FileLink + " width=\"600\" height=\"400\"> </embed> Error: Embedded data could not be displayed. </object>");
+		Reporter.log("<OBJECT data=\"" + FileLink + "\" TYPE=\"application/html\" TITLE=\"Perfecto Mobile HTML Report\" WIDTH=200 HEIGHT=100> <a href=\"" + FileLink + "\">Perfecto HTML Report Link</a></object>");
+		
+		
 		PerfectoTest t = new PerfectoTest();
 		String rc =  t.checkFlights(device);
 
 	
 		assert rc.equals("New York/Newark, NJ (EWR)") : "Expected  New York/Newark, NJ (EWR)" + rc;
 
-
+//file:///C:/Users/tomerg/workspace/CITestNGDemo/test-output/YourFile.pdf
 	}
 
 }
