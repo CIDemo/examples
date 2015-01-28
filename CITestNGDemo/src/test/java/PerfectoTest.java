@@ -36,6 +36,8 @@ public class PerfectoTest {
 			webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			webDriver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 			//webDriver.clean();
+			
+			sleep(2000);
 			// press on the button "flight status"
 			visualDriver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 
@@ -56,7 +58,8 @@ public class PerfectoTest {
 				}
 
 			}
-
+			
+			sleep(2000);
 			visualDriver.findElement(By.linkText("Search"));
 
 
@@ -92,4 +95,13 @@ public class PerfectoTest {
 	
 
 	}
+	
+	
+		private static void sleep(long millis) {
+		try {
+			Thread.sleep(millis);
+		} catch (InterruptedException e) {
+		}
+	}
+	
 }
